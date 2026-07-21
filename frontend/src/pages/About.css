@@ -1,0 +1,34 @@
+.about h1 {
+  margin-top: 0;
+}
+
+.headline {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+}
+
+.bio,
+.about section p {
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 65ch;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.links a {
+  color: #38bdf8;
+}
+
+.status {
+  color: #94a3b8;
+}
+
+.status.error {
+  color: #f87171;
+}
