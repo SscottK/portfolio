@@ -1,0 +1,97 @@
+.card-carousel {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+}
+
+.card-carousel-track {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.card-carousel-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.card-carousel-slide .project-card {
+  width: min(100%, 580px);
+  max-height: calc(100% - 1.5rem);
+  overflow-y: auto;
+}
+
+.card-carousel-ui {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  pointer-events: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(5, 7, 7, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+}
+
+.card-carousel-count {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.card-carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+
+.card-carousel-dots button {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-slate-dark);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    width 0.2s ease;
+}
+
+.card-carousel-dots button.active {
+  width: 18px;
+  background: var(--color-glow-light);
+  box-shadow: 0 0 12px var(--color-glow-medium);
+}
+
+.card-carousel-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-carousel-track {
+    transition: none;
+  }
+}

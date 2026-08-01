@@ -1,0 +1,128 @@
+.gallery-panel-top {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--detail-panel-border, rgba(148, 163, 184, 0.52)),
+    var(--shadow-elevated);
+  background: var(--color-bg);
+  isolation: isolate;
+}
+
+.gallery-main {
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.gallery-main img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-main--video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.gallery-main iframe,
+.gallery-main video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+.gallery-video-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  color: var(--color-glow-light);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gallery-video-link:hover {
+  color: var(--color-text);
+}
+
+.gallery-caption {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--color-slate);
+  text-align: center;
+  border-top: 1px solid var(--detail-panel-border, rgba(148, 163, 184, 0.52));
+  background: rgba(5, 7, 7, 0.35);
+}
+
+.gallery-thumbs-bridge {
+  --gallery-pane-gap: 2.5rem;
+  padding-top: var(--gallery-pane-gap);
+  padding-bottom: var(--gallery-pane-gap);
+  isolation: isolate;
+}
+
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.gallery-thumb {
+  position: relative;
+  width: 88px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-bg-card);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-thumb.active {
+  border-color: var(--color-glow-light);
+  box-shadow: 0 0 0 1px rgba(110, 231, 183, 0.35);
+}
+
+.gallery-thumb-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-slate-light);
+  background: rgba(0, 73, 83, 0.25);
+}
+
+.gallery-thumb-play {
+  font-size: 0.875rem;
+  margin-bottom: 0.15rem;
+  color: var(--color-glow-light);
+}
+
+.gallery-thumb.active .gallery-thumb-video {
+  color: var(--color-text);
+}

@@ -25,13 +25,16 @@ export default function Projects() {
   }, [filter])
 
   return (
-    <div>
-      <h1>Projects</h1>
-      <p className="intro">
-        Apps built with Cursor, hand-coded work, and everything in between.
-      </p>
+    <div className="projects-page">
+      <header className="page-header">
+        <span className="section-label">Work</span>
+        <h1>Projects</h1>
+        <p className="page-lead">
+          Apps built with Cursor, hand-coded work, and everything in between.
+        </p>
+      </header>
 
-      <div className="filters">
+      <div className="filters" role="group" aria-label="Filter projects">
         {FILTERS.map(({ key, label }) => (
           <button
             key={key}
@@ -56,7 +59,7 @@ export default function Projects() {
       )}
 
       {!loading && !error && projects.length === 0 && (
-        <p className="status">No projects match this filter.</p>
+        <p className="status empty-message">No projects match this filter.</p>
       )}
     </div>
   )

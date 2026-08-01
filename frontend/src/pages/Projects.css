@@ -1,44 +1,50 @@
-.intro {
-  color: #94a3b8;
-  margin-bottom: 1.5rem;
-}
-
 .filters {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .filters button {
-  background: #1e293b;
-  border: 1px solid #334155;
-  color: #cbd5e1;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-slate-light);
+  padding: 0.5rem 1.125rem;
+  border-radius: var(--radius-full);
   cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .filters button.active,
 .filters button:hover {
-  border-color: #38bdf8;
-  color: #38bdf8;
+  border-color: rgba(110, 231, 183, 0.35);
+  color: var(--color-text);
+  background: rgba(0, 73, 83, 0.28);
+  box-shadow: 0 0 20px var(--color-glow-soft);
 }
 
 .project-grid {
   display: grid;
-  gap: 1rem;
+  gap: 3rem;
+  padding: 0.75rem 0 1rem;
 }
 
 @media (min-width: 720px) {
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3.5rem;
+    row-gap: 3rem;
   }
 }
 
-.status {
-  color: #94a3b8;
-}
-
-.status.error {
-  color: #f87171;
+.empty-message {
+  text-align: center;
+  padding: 3rem 1rem;
 }

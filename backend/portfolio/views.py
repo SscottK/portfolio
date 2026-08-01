@@ -1,8 +1,13 @@
 from rest_framework import generics
 from rest_framework.exceptions import NotFound
 
-from .models import Profile, Project
-from .serializers import ProfileSerializer, ProjectDetailSerializer, ProjectListSerializer
+from .models import Profile, Project, Resume
+from .serializers import (
+    ProfileSerializer,
+    ProjectDetailSerializer,
+    ProjectListSerializer,
+    ResumeSerializer,
+)
 
 
 class ProjectListView(generics.ListAPIView):
@@ -19,7 +24,7 @@ class ProjectListView(generics.ListAPIView):
         if params.get("hand_coded") == "true":
             queryset = queryset.filter(hand_coded=True)
 
-        return queryset
+        return queryset.prefetch_related("gallery_items")
 
 
 class ProjectDetailView(generics.RetrieveAPIView):
@@ -27,7 +32,7 @@ class ProjectDetailView(generics.RetrieveAPIView):
     lookup_field = "slug"
 
     def get_queryset(self):
-        return Project.objects.filter(is_published=True)
+        return Project.objects.filter(is_published=True).prefetch_related("gallery_items")
 
 
 class ProfileView(generics.RetrieveAPIView):
@@ -38,3 +43,21 @@ class ProfileView(generics.RetrieveAPIView):
         if profile is None:
             raise NotFound("Profile has not been created yet.")
         return profile
+
+
+class ResumeView(generics.RetrieveAPIView):
+    serializer_class = ResumeSerializer
+
+    def get_object(self):
+        resume = (
+            Resume.objects.prefetch_related(
+                "skill_categories",
+                "education",
+                "experience",
+                "resume_projects",
+            )
+            .first()
+        )
+        if resume is None:
+            raise NotFound("Resume has not been created yet.")
+        return resume

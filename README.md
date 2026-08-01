@@ -40,6 +40,7 @@ cd backend
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py seed_data
+python manage.py seed_resume
 python manage.py runserver
 ```
 
@@ -50,6 +51,7 @@ Useful endpoints:
 - `GET /api/projects/`
 - `GET /api/projects/<slug>/`
 - `GET /api/profile/`
+- `GET /api/resume/`
 - Django Admin: `http://127.0.0.1:8000/admin/`
 
 Query filters for projects:
@@ -75,7 +77,8 @@ Frontend runs at `http://localhost:5173/` and proxies `/api` to Django during de
 Use Django Admin to edit:
 
 - **Profile** — name, headline, bio, Cursor story, links
-- **Projects** — descriptions, tech stack, GitHub/demo links, Cursor vs hand-coded flags, featured toggle
+- **Resume** — contact info, summary, skills, education, resume projects, work experience
+- **Projects** — descriptions, tech stack, GitHub/demo links, Cursor vs hand-coded flags, featured toggle, **gallery** (images + video demos on detail page)
 
 The `seed_data` command loads sample content you can replace.
 

@@ -24,3 +24,7 @@ export function getProject(slug) {
 export function getProfile() {
   return request('/api/profile/')
 }
+
+export function getResume() {
+  return request('/api/resume/')
+}

@@ -19,30 +19,50 @@ export default function About() {
 
   return (
     <div className="about">
-      <h1>About</h1>
-      <p className="headline">{profile.headline}</p>
-      <p className="bio">{profile.bio}</p>
+      <header className="page-header">
+        <span className="section-label">About</span>
+        <h1>{profile.name}</h1>
+        <p className="page-lead">{profile.headline}</p>
+      </header>
 
-      {profile.about_cursor && (
-        <section>
-          <h2>Building with Cursor</h2>
-          <p>{profile.about_cursor}</p>
+      <div className="content-panel">
+        <p className="bio">{profile.bio}</p>
+
+        {profile.about_cursor && (
+          <section className="about-section">
+            <h2>Building with Cursor</h2>
+            <p>{profile.about_cursor}</p>
+          </section>
+        )}
+
+        <section className="about-links">
+          {profile.github_url && (
+            <a
+              href={profile.github_url}
+              target="_blank"
+              rel="noreferrer"
+              className="button button-secondary"
+            >
+              GitHub
+            </a>
+          )}
+          {profile.linkedin_url && (
+            <a
+              href={profile.linkedin_url}
+              target="_blank"
+              rel="noreferrer"
+              className="button button-secondary"
+            >
+              LinkedIn
+            </a>
+          )}
+          {profile.email && (
+            <a href={`mailto:${profile.email}`} className="button button-secondary">
+              Email
+            </a>
+          )}
         </section>
-      )}
-
-      <section className="links">
-        {profile.github_url && (
-          <a href={profile.github_url} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-        )}
-        {profile.linkedin_url && (
-          <a href={profile.linkedin_url} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-        )}
-        {profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
-      </section>
+      </div>
     </div>
   )
 }
