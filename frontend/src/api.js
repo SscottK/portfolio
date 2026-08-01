@@ -28,3 +28,7 @@ export function getProfile() {
 export function getResume() {
   return request('/api/resume/')
 }
+
+export function getCertifications() {
+  return request('/api/certifications/')
+}

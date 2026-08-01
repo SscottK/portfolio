@@ -203,3 +203,30 @@ class ResumeProject(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Certification(models.Model):
+    name = models.CharField(max_length=200)
+    issuer = models.CharField(
+        max_length=100,
+        help_text='e.g. "General Assembly" or "boot.dev"',
+    )
+    description = models.TextField(blank=True)
+    credential_url = models.URLField(
+        blank=True,
+        help_text="Link to verify the certificate or your boot.dev profile.",
+    )
+    completed_date = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text='e.g. "2024" or "March 2024"',
+    )
+    badge = models.ImageField(upload_to="certifications/", blank=True, null=True)
+    sort_order = models.PositiveIntegerField(default=0)
+    is_published = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ["sort_order", "name"]
+
+    def __str__(self):
+        return f"{self.name} ({self.issuer})"

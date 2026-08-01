@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import (
+    Certification,
     Education,
     Experience,
     Profile,
@@ -10,7 +11,6 @@ from .models import (
     ResumeProject,
     SkillCategory,
 )
-
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
@@ -105,3 +105,11 @@ class ResumeAdmin(admin.ModelAdmin):
         ExperienceInline,
         ResumeProjectInline,
     ]
+
+
+@admin.register(Certification)
+class CertificationAdmin(admin.ModelAdmin):
+    list_display = ("name", "issuer", "completed_date", "is_published", "sort_order")
+    list_filter = ("issuer", "is_published")
+    search_fields = ("name", "issuer", "description")
+    ordering = ("sort_order", "name")

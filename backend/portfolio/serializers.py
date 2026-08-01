@@ -11,6 +11,7 @@ from .models import (
     Resume,
     ResumeProject,
     SkillCategory,
+    Certification,
 )
 
 YOUTUBE_PATTERN = re.compile(
@@ -207,4 +208,19 @@ class ResumeSerializer(serializers.ModelSerializer):
             "education",
             "experience",
             "projects",
+        ]
+
+
+class CertificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Certification
+        fields = [
+            "id",
+            "name",
+            "issuer",
+            "description",
+            "credential_url",
+            "completed_date",
+            "badge",
+            "sort_order",
         ]

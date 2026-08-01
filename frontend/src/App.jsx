@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import About from './pages/About'
+import Certifications from './pages/Certifications'
 import Home from './pages/Home'
 import ProjectDetail from './pages/ProjectDetail'
 import Projects from './pages/Projects'
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/certifications" element={<Certifications />} />
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>

@@ -1,8 +1,9 @@
 from rest_framework import generics
 from rest_framework.exceptions import NotFound
 
-from .models import Profile, Project, Resume
+from .models import Profile, Project, Resume, Certification
 from .serializers import (
+    CertificationSerializer,
     ProfileSerializer,
     ProjectDetailSerializer,
     ProjectListSerializer,
@@ -61,3 +62,10 @@ class ResumeView(generics.RetrieveAPIView):
         if resume is None:
             raise NotFound("Resume has not been created yet.")
         return resume
+
+
+class CertificationListView(generics.ListAPIView):
+    serializer_class = CertificationSerializer
+
+    def get_queryset(self):
+        return Certification.objects.filter(is_published=True)

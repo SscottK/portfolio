@@ -87,42 +87,42 @@ export default function Resume() {
         <div className="resume-entries">
           {resume.projects.map((project) => (
             <article key={project.name} className="resume-entry">
-            <div className="project-heading">
-              <h3>
-                {project.github_url ? (
-                  <a href={project.github_url} target="_blank" rel="noreferrer">
-                    {project.name}
-                  </a>
-                ) : (
-                  project.name
-                )}
-              </h3>
-              <div className="project-links">
-                {project.built_with_cursor && (
-                  <span className="badge cursor">Built with Cursor</span>
-                )}
-                {project.github_url && (
-                  <a href={project.github_url} target="_blank" rel="noreferrer">
-                    GitHub
-                  </a>
-                )}
-                {project.demo_url && (
-                  <a href={project.demo_url} target="_blank" rel="noreferrer">
-                    Live demo{project.access_note ? '*' : ''}
-                  </a>
-                )}
+              <div className="project-heading">
+                <h3>
+                  {project.github_url ? (
+                    <a href={project.github_url} target="_blank" rel="noreferrer">
+                      {project.name}
+                    </a>
+                  ) : (
+                    project.name
+                  )}
+                </h3>
+                <div className="project-links">
+                  {project.built_with_cursor && (
+                    <span className="badge cursor">Built with Cursor</span>
+                  )}
+                  {project.github_url && (
+                    <a href={project.github_url} target="_blank" rel="noreferrer">
+                      GitHub
+                    </a>
+                  )}
+                  {project.demo_url && (
+                    <a href={project.demo_url} target="_blank" rel="noreferrer">
+                      Live demo{project.access_note ? '*' : ''}
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-            {project.access_note && (
-              <p className="access-note">*{project.access_note}</p>
-            )}
-            {project.tech_stack?.length > 0 && (
-              <p className="entry-meta">
-                <strong>Tech stack:</strong> {project.tech_stack.join(', ')}
-              </p>
-            )}
-            <BulletList items={project.bullets} />
-          </article>
+              {project.access_note && (
+                <p className="access-note">*{project.access_note}</p>
+              )}
+              {project.tech_stack?.length > 0 && (
+                <p className="entry-meta">
+                  <strong>Tech stack:</strong> {project.tech_stack.join(', ')}
+                </p>
+              )}
+              <BulletList items={project.bullets} />
+            </article>
           ))}
         </div>
       </section>
@@ -135,17 +135,17 @@ export default function Resume() {
               key={`${job.company}-${job.title}-${job.date_range}`}
               className="resume-entry"
             >
-            <div className="entry-heading">
-              <h3>
-                {job.company}
-                {job.location && <span className="entry-location"> — {job.location}</span>}
-              </h3>
-              <p className="entry-subtitle">
-                {job.title} | {job.date_range}
-              </p>
-            </div>
-            <BulletList items={job.bullets} />
-          </article>
+              <div className="entry-heading">
+                <h3>
+                  {job.company}
+                  {job.location && <span className="entry-location"> — {job.location}</span>}
+                </h3>
+                <p className="entry-subtitle">
+                  {job.title} | {job.date_range}
+                </p>
+              </div>
+              <BulletList items={job.bullets} />
+            </article>
           ))}
         </div>
       </section>

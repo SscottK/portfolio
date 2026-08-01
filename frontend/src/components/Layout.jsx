@@ -20,6 +20,7 @@ export default function Layout() {
           </NavLink>
           <NavLink to="/projects">Projects</NavLink>
           <NavLink to="/resume">Resume</NavLink>
+          <NavLink to="/certifications">Certifications</NavLink>
           <NavLink to="/about">About</NavLink>
         </nav>
       </header>
