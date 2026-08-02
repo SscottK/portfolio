@@ -27,8 +27,32 @@
 
 .card-carousel-slide .project-card {
   width: min(100%, 580px);
+  height: calc(100% - 1.5rem);
   max-height: calc(100% - 1.5rem);
-  overflow-y: auto;
+  overflow: hidden;
+}
+
+.card-carousel-slide .project-card-main {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.card-carousel-slide .project-card-image-wrap {
+  flex: 1 1 auto;
+  min-height: 7rem;
+  max-height: 48%;
+  aspect-ratio: auto;
+}
+
+.card-carousel-slide .project-card-body {
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.card-carousel-slide .project-card-cta,
+.card-carousel-slide .project-card-links {
+  flex-shrink: 0;
 }
 
 .card-carousel-ui {

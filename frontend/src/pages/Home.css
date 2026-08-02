@@ -158,3 +158,62 @@
   align-items: center;
   justify-content: center;
 }
+
+/* 1080p / shorter windows: shrink hero so featured cards fit without scrollbars */
+@media (max-height: 900px) {
+  .hero {
+    padding-bottom: 0.875rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
+
+  .headline {
+    font-size: 0.9875rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .bio {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .hero-actions {
+    margin-top: 0.875rem;
+  }
+
+  .hero-panel {
+    padding: 1rem 1.125rem;
+  }
+
+  .hero-panel-note {
+    display: none;
+  }
+
+  .featured-section {
+    padding-top: 0.75rem;
+  }
+
+  .section-header {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-height: 800px) {
+  .bio {
+    -webkit-line-clamp: 2;
+  }
+
+  .hero-connect {
+    display: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+}
