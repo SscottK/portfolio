@@ -84,20 +84,29 @@ The `seed_data` command loads sample content you can replace.
 
 ## Deployment notes
 
+Deployment follows the same pattern as [dnd-ai-app](https://github.com/SscottK/dnd-ai-app): **Render** (API + Postgres + persistent disk) and **Vercel** (frontend).
+
+See **`backend/DEPLOY.md`** for step-by-step production setup.
+
 ### Render (backend)
 
-- Create a Web Service pointing at `backend/`
-- Build: `pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput`
-- Start: `gunicorn config.wsgi:application`
-- Add env vars from `.env.example` plus production `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`, and Render Postgres credentials
-- Set `CORS_ALLOWED_ORIGINS` to your Vercel URL
+Use the included **`render.yaml`** blueprint, or configure manually:
+
+- **Root directory:** `backend`
+- **Build:** `pip install -r requirements.txt && python manage.py collectstatic --noinput`
+- **Start:** `bash scripts/start.sh` (runs migrations, then gunicorn)
+- **Disk:** mount `/var/data` (1 GB) — uploads persist at `/var/data/media`
+- **Env:** `DATABASE_URL` from Render Postgres, `MEDIA_ROOT=/var/data/media`, `DJANGO_DEBUG=False`, generated `DJANGO_SECRET_KEY`, and `CORS_ALLOWED_ORIGINS` with your Vercel URL
 
 ### Vercel (frontend)
 
-- Root directory: `frontend`
-- Build: `npm run build`
-- Output: `dist`
-- Set `VITE_API_BASE_URL` to your Render API origin (e.g. `https://your-api.onrender.com`)
+- **Root directory:** `frontend`
+- **Build:** `npm run build`
+- **Output:** `dist`
+- **`frontend/vercel.json`** rewrites all routes to `index.html` (React Router)
+- Set **`VITE_API_BASE_URL`** to your Render API origin (e.g. `https://portfolio-backend.onrender.com`)
+
+Preview deploys on `*.vercel.app` are allowed via CORS regex on the backend.
 
 ## Local env reference
 
