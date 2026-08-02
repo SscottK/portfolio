@@ -15,6 +15,10 @@ fi
 mkdir -p "$MEDIA_DIR"
 echo "Media directory: $MEDIA_DIR"
 
+echo "Collecting static files..."
+python manage.py collectstatic --noinput
+echo "Static files ready."
+
 echo "Running database migrations..."
 python manage.py migrate --noinput
 echo "Migrations complete."
