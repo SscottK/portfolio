@@ -1,19 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getProfile, getProjects } from '../api'
 import MarkdownContent from '../components/MarkdownContent'
 import ProjectCardScroller from '../components/ProjectCardScroller'
 import './Home.css'
-
-function firstBioParagraph(bio) {
-  if (!bio) return ''
-  const normalized = bio.replace(/\r\n/g, '\n').trim()
-  const blocks = normalized
-    .split(/\n\n+/)
-    .map((block) => block.trim())
-    .filter(Boolean)
-  return blocks[0] ?? normalized
-}
 
 export default function Home() {
   const [profile, setProfile] = useState(null)
@@ -36,12 +26,6 @@ export default function Home() {
       .finally(() => setLoading(false))
   }, [])
 
-  const homeBio = useMemo(() => firstBioParagraph(profile?.bio), [profile?.bio])
-  const hasMoreAbout = Boolean(
-    profile?.about?.trim() ||
-      (profile?.bio && profile.bio.replace(/\r\n/g, '\n').trim() !== homeBio),
-  )
-
   if (loading) return <p className="status home-status">Loading...</p>
   if (error) return <p className="status error home-status">{error}</p>
 
@@ -52,8 +36,8 @@ export default function Home() {
           <span className="section-label">Portfolio</span>
           <h1>{profile?.name ?? 'Developer'}</h1>
           <p className="headline">{profile?.headline}</p>
-          <MarkdownContent content={homeBio} className="bio" />
-          {hasMoreAbout && (
+          <MarkdownContent content={profile?.bio} className="bio" />
+          {profile?.about?.trim() && (
             <Link to="/about" className="bio-more">
               Read more about me →
             </Link>
