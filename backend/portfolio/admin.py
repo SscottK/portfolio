@@ -15,6 +15,23 @@ from .models import (
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("name", "headline", "email")
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "name",
+                    "headline",
+                    "bio",
+                    "about",
+                    "about_cursor",
+                    "github_url",
+                    "linkedin_url",
+                    "email",
+                ),
+            },
+        ),
+    )
 
 
 class ProjectGalleryItemInline(admin.TabularInline):

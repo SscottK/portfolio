@@ -27,7 +27,7 @@ export default function About() {
       </header>
 
       <div className="content-panel">
-        <MarkdownContent content={profile.bio} className="bio" />
+        <MarkdownContent content={profile.about || profile.bio} className="bio" />
 
         {profile.about_cursor && (
           <section className="about-section">

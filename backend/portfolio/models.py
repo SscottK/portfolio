@@ -6,13 +6,23 @@ class Profile(models.Model):
     name = models.CharField(max_length=200)
     headline = models.CharField(max_length=300)
     bio = models.TextField(
+        verbose_name="Bio (home page)",
         help_text=(
-            "Supports light Markdown: blank line = new paragraph, "
+            "Short intro for the home page. Light Markdown: blank line = new paragraph, "
             "**bold**, *italic*, - lists, and [links](https://example.com)."
+        ),
+    )
+    about = models.TextField(
+        blank=True,
+        verbose_name="About me",
+        help_text=(
+            "Longer story for the About page. Same light Markdown as the home bio. "
+            "If left blank, the home bio is shown instead."
         ),
     )
     about_cursor = models.TextField(
         blank=True,
+        verbose_name="Building with Cursor",
         help_text=(
             "How you use Cursor to build apps. Same light Markdown as bio."
         ),

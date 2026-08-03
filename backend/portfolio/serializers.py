@@ -93,6 +93,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "name",
             "headline",
             "bio",
+            "about",
             "about_cursor",
             "github_url",
             "linkedin_url",

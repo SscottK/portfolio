@@ -16,6 +16,12 @@ class Command(BaseCommand):
                     "I build web applications across the stack, mixing AI-assisted "
                     "development in Cursor with traditional hand-coded work."
                 ),
+                "about": (
+                    "I build web applications across the stack, mixing AI-assisted "
+                    "development in Cursor with traditional hand-coded work.\n\n"
+                    "This longer About page copy can go deeper on background, "
+                    "bootcamp experience, and personal projects."
+                ),
                 "about_cursor": (
                     "Cursor helps me move faster on scaffolding, refactors, and "
                     "exploration while I stay in control of architecture and the "
