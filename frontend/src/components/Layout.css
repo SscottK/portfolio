@@ -108,6 +108,7 @@
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
+  width: min(1280px, 100%);
   padding-top: clamp(1rem, 3vw, 1.75rem);
   padding-bottom: 0.75rem;
 }

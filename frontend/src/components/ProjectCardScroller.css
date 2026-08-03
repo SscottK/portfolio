@@ -26,7 +26,7 @@
 }
 
 .card-carousel-slide .project-card {
-  width: min(100%, 580px);
+  width: min(100%, 520px);
   height: calc(100% - 1.5rem);
   max-height: calc(100% - 1.5rem);
   overflow: hidden;
