@@ -179,11 +179,12 @@
 
 @media (min-width: 960px) {
   .home-columns {
-    /* Bio fills leftover left space; featured + connect stay fixed widths */
-    grid-template-columns: minmax(0, 1fr) 34rem 14rem;
+    /* Bio capped at ~40%; featured + connect stay fixed */
+    grid-template-columns: minmax(16rem, 40%) 34rem 14rem;
     grid-template-areas: 'bio featured connect';
     gap: 1.5rem;
     align-items: stretch;
+    justify-content: start;
   }
 
   .home-featured {
