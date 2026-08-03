@@ -22,7 +22,7 @@
   grid-area: bio;
   min-height: 0;
   overflow-y: auto;
-  padding-right: 0.25rem;
+  padding-right: 0.75rem;
 }
 
 .home-bio h1 {
@@ -179,7 +179,8 @@
 
 @media (min-width: 960px) {
   .home-columns {
-    grid-template-columns: minmax(20rem, 1.2fr) minmax(24rem, 1.5fr) minmax(12rem, 0.5fr);
+    /* Bio fills leftover left space; featured + connect stay fixed widths */
+    grid-template-columns: minmax(0, 1fr) 34rem 14rem;
     grid-template-areas: 'bio featured connect';
     gap: 1.5rem;
     align-items: stretch;
@@ -187,9 +188,11 @@
 
   .home-featured {
     min-height: 0;
+    width: 34rem;
   }
 
   .home-connect {
+    width: 14rem;
     align-self: start;
   }
 }
