@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getProfile, getProjects } from '../api'
+import MarkdownContent from '../components/MarkdownContent'
 import ProjectCardScroller from '../components/ProjectCardScroller'
 import './Home.css'
 
@@ -36,7 +37,7 @@ export default function Home() {
             <span className="section-label">Portfolio</span>
             <h1>{profile?.name ?? 'Developer'}</h1>
             <p className="headline">{profile?.headline}</p>
-            <p className="bio">{profile?.bio}</p>
+            <MarkdownContent content={profile?.bio} className="bio" />
             <div className="hero-actions">
               <Link to="/projects" className="button button-primary">
                 View all projects

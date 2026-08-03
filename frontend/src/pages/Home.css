@@ -45,11 +45,19 @@
 }
 
 .bio {
-  max-width: 54ch;
+  margin: 0;
+  font-size: 0.9375rem;
   line-height: 1.65;
   color: var(--color-slate);
-  font-size: 0.9375rem;
-  margin: 0;
+  max-width: 54ch;
+}
+
+.bio p {
+  margin: 0 0 0.75rem;
+}
+
+.bio p:last-child {
+  margin-bottom: 0;
 }
 
 .hero-actions {

@@ -5,10 +5,17 @@ from django.utils.text import slugify
 class Profile(models.Model):
     name = models.CharField(max_length=200)
     headline = models.CharField(max_length=300)
-    bio = models.TextField()
+    bio = models.TextField(
+        help_text=(
+            "Supports light Markdown: blank line = new paragraph, "
+            "**bold**, *italic*, - lists, and [links](https://example.com)."
+        ),
+    )
     about_cursor = models.TextField(
         blank=True,
-        help_text="How you use Cursor to build apps.",
+        help_text=(
+            "How you use Cursor to build apps. Same light Markdown as bio."
+        ),
     )
     github_url = models.URLField(blank=True)
     linkedin_url = models.URLField(blank=True)

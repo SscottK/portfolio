@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getProfile } from '../api'
+import MarkdownContent from '../components/MarkdownContent'
 import './About.css'
 
 export default function About() {
@@ -26,12 +27,12 @@ export default function About() {
       </header>
 
       <div className="content-panel">
-        <p className="bio">{profile.bio}</p>
+        <MarkdownContent content={profile.bio} className="bio" />
 
         {profile.about_cursor && (
           <section className="about-section">
             <h2>Building with Cursor</h2>
-            <p>{profile.about_cursor}</p>
+            <MarkdownContent content={profile.about_cursor} />
           </section>
         )}
 

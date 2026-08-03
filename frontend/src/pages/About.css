@@ -24,10 +24,9 @@
   font-size: 1.125rem;
 }
 
-.about-section p {
-  margin: 0;
-  line-height: 1.75;
+.about-section .markdown-content {
   color: var(--color-slate);
+  line-height: 1.75;
 }
 
 .about-links {
